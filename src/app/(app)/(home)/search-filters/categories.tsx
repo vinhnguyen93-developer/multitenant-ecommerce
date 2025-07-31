@@ -3,16 +3,16 @@
 import { ListFilterIcon } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
-import { CustomCategory } from "../types"
-
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
 import { CategoryDropdown } from "./category-dropdown"
 import { CategoriesSidebar } from "./categories-sidebar"
 
+import { CategoriesGetManyOutput } from "@/modules/categories/types"
+
 interface CategoriesProps {
-  data: CustomCategory[]
+  data: CategoriesGetManyOutput
 }
 
 export const Categories = ({ data }: CategoriesProps) => {
@@ -63,7 +63,6 @@ export const Categories = ({ data }: CategoriesProps) => {
     <div className="relative w-full">
       {/* Categories sidebar */}
       <CategoriesSidebar
-        data={data}
         open={isSidebarOpen}
         onOpenChange={setIsSidebarOpen}
       />
